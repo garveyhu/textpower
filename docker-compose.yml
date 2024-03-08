@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  textpower:
+    image: archeruu/python-poetry:3.10
+    container_name: textpower
+    network_mode: host
+    ports:
+      - "8000:8000"
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - .:/apps/textpower
+    working_dir: /apps/textpower
+    command: ./run.sh

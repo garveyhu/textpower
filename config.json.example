@@ -1,0 +1,154 @@
+{
+    "cases": {
+        "chat": "spark-v3",
+        "embedding": "text-embedding-v1",
+        "vector": "pinecone"
+    },
+    "keys": {
+        "openai": {
+            "OPENAI_API_KEY": ""
+        },
+        "spark": {
+            "SPARK_APPID": "",
+            "SPARK_API_KEY": "",
+            "SPARK_API_SECRET": ""
+        },
+        "ernie": {
+            "ERNIE_API_KEY": "",
+            "ERNIE_API_SECRET": ""
+        },
+        "qwen": {
+            "QWEN_API_KEY": ""
+        },
+        "pinecone": {
+            "PINECONE_API_KEY": ""
+        },
+        "complex": {
+            "HUGGINGFACEHUB_API_TOKEN": ""
+        }
+    },
+    "lists": {
+        "chat": [
+            {
+                "name": "text-davinci-003",
+                "type": "openai",
+                "token": "4k",
+                "temperature": 0.5
+            },
+            {
+                "name": "gpt-3.5-turbo",
+                "type": "openai",
+                "token": "4k",
+                "temperature": 0.5
+            },
+            {
+                "name": "gpt-3.5-turbo-16k",
+                "type": "openai",
+                "token": "16k",
+                "temperature": 0.5
+            },
+            {
+                "name": "gpt-3.5-turbo-1106",
+                "type": "openai",
+                "token": "16k",
+                "temperature": 0.5
+            },
+            {
+                "name": "gpt-4",
+                "type": "openai",
+                "token": "8k",
+                "temperature": 0.5
+            },
+            {
+                "name": "gpt-4-32k",
+                "type": "openai",
+                "token": "32k",
+                "temperature": 0.5
+            },
+            {
+                "name": "gpt-4-1106-preview",
+                "type": "openai",
+                "token": "128k",
+                "temperature": 0.5
+            },
+            {
+                "name": "ernie-bot-turbo",
+                "type": "ernie",
+                "token": "7k",
+                "temperature": 0.5
+            },
+            {
+                "name": "ernie-bot-4.0",
+                "type": "ernie",
+                "token": "3k",
+                "temperature": 0.5
+            },
+            {
+                "name": "spark-v2",
+                "type": "spark",
+                "token": "8k",
+                "temperature": 0.5
+            },
+            {
+                "name": "spark-v3",
+                "type": "spark",
+                "token": "8k",
+                "temperature": 0.5
+            },
+            {
+                "name": "qwen-turbo",
+                "type": "qwen",
+                "token": "6k",
+                "temperature": 0.5
+            },
+            {
+                "name": "qwen-plus",
+                "type": "qwen",
+                "token": "6k",
+                "temperature": 0.5
+            }
+        ],
+        "embedding": [
+            {
+                "name": "text-embedding-ada-002",
+                "type": "openai",
+                "token": "8k",
+                "dimension": 1536
+            },
+            {
+                "name": "embedding-v1",
+                "type": "ernie",
+                "token": "4k",
+                "dimension": 1536
+            },
+            {
+                "name": "text-embedding-v1",
+                "type": "qwen",
+                "token": "2k",
+                "dimension": 1536
+            }
+        ],
+        "vector": [
+            {
+                "name": "pinecone",
+                "type": "pinecone"
+            },
+            {
+                "name": "elasticsearch",
+                "type": "elasticsearch"
+            }
+        ],
+        "audio": [],
+        "video": [],
+        "image": []
+    },
+    "user": {
+        "id": "0"
+    },
+    "app": {
+        "id": "0"
+    },
+    "dialog": {
+        "id": "0"
+    }
+}
