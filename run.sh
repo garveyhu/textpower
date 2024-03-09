@@ -1,9 +1,11 @@
 #!/bin/bash
 
+PROJECT_NAME="textpower"
+
 function find_and_check_python() {
     for cmd in python3 python; do
         if command -v $cmd &> /dev/null; then
-            if $cmd -c "import sys; sys.exit(not (3, 10 <= sys.version_info < (4,)))"; then
+            if $cmd -c "import sys; sys.exit(not (sys.version_info >= (3, 10)))"; then
                 echo $cmd
                 return
             else
@@ -33,4 +35,4 @@ check_and_install_poetry $PYTHON_CMD
 echo -e "🐍 安装依赖包..."
 $PYTHON_CMD -m poetry install --without dev
 echo -e "✅ 完成安装依赖包！启动中..."
-$PYTHON_CMD -m poetry run python -m textpower
+$PYTHON_CMD -m poetry run python -m $PROJECT_NAME

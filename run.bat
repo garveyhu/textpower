@@ -1,6 +1,8 @@
 @echo off
 chcp 65001
 
+set PROJECT_NAME=textpower
+
 :: 查找并检查 Python 版本
 for %%i in (python3, python) do (
     %%i --version > NUL 2>&1
@@ -32,9 +34,8 @@ if ERRORLEVEL 1 (
 
 echo 🐍 安装依赖包...
 %PYTHON_CMD% -m poetry install --without dev
-
 echo ✅ 完成安装依赖包！启动中...
-%PYTHON_CMD% -m poetry run python -m textpower
+%PYTHON_CMD% -m poetry run python -m %PROJECT_NAME%
 
 :end
 pause
