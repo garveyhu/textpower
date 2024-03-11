@@ -1,17 +1,17 @@
 from langchain_community.chat_models import QianfanChatEndpoint as BaseQianfanChat
 
 from textpower.complex.config.api_settings_inventory import (
-    chat,
-    chat_temperature,
+    llm,
+    llm_temperature,
     keys_qianfan,
 )
 
 
 class QianfanChat(BaseQianfanChat):
     def __init__(self):
-        model = chat()
+        model = llm()
         qianfan_ak, qianfan_sk = keys_qianfan()
-        temperature = chat_temperature()
+        temperature = llm_temperature()
         super().__init__(
             model=model,
             qianfan_ak=qianfan_ak,

@@ -1,7 +1,6 @@
 {
     "cases": {
-        "chat": "qwen-turbo",
-        "llm": "gpt-3.5-turbo-instruct",
+        "llm": "qwen-turbo",
         "embedding": "text-embedding-v1",
         "vector": "pinecone"
     },
@@ -32,7 +31,7 @@
         }
     },
     "lists": {
-        "chat": [
+        "llm": [
             {
                 "name": "text-davinci-003",
                 "type": "openai",
@@ -73,6 +72,12 @@
                 "name": "gpt-4-turbo-preview",
                 "type": "openai",
                 "token": "128k",
+                "temperature": 0.5
+            },
+            {
+                "name": "gpt-3.5-turbo-instruct",
+                "type": "openai",
+                "token": "4k",
                 "temperature": 0.5
             },
             {
@@ -121,14 +126,6 @@
                 "name": "spark-v3.5",
                 "type": "spark",
                 "token": "8k",
-                "temperature": 0.5
-            }
-        ],
-        "llm": [
-            {
-                "name": "gpt-3.5-turbo-instruct",
-                "type": "openai",
-                "token": "4k",
                 "temperature": 0.5
             }
         ],

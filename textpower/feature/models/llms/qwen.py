@@ -7,17 +7,17 @@ import requests
 from langchain_core.language_models import LLM
 
 from textpower.complex.config.api_settings_inventory import (
-    chat,
-    chat_temperature,
+    llm,
+    llm_temperature,
     keys_qwen,
 )
 
 
-class QwenChat(LLM):
+class Qwen(LLM):
     def __init__(self):
-        self.model = chat()
+        self.model = llm()
         self.qwen_api_key = keys_qwen()
-        self.temperature = chat_temperature()
+        self.temperature = llm_temperature()
 
     @property
     def _llm_type(self) -> str:

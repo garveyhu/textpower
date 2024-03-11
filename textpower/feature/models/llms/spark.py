@@ -16,8 +16,8 @@ import websocket
 from langchain_core.language_models import LLM
 
 from textpower.complex.config.api_settings_inventory import (
-    chat,
-    chat_temperature,
+    llm,
+    llm_temperature,
     keys_spark,
 )
 
@@ -25,7 +25,7 @@ logging.basicConfig(level=logging.INFO)
 result_list = []
 
 
-class SparkChat(LLM):
+class Spark(LLM):
     """
     根据源码解析在通过LLMS包装的时候主要重构两个部分的代码
     _call 模型调用主要逻辑,输入问题，输出模型相应结果
@@ -45,9 +45,9 @@ class SparkChat(LLM):
     max_tokens = 1024
 
     def __init__(self):
-        self.model = chat()
+        self.model = llm()
         self.spark_appid, self.spark_api_key, self.spark_api_secret = keys_spark()
-        self.temperature = chat_temperature()
+        self.temperature = llm_temperature()
 
     @property
     def _llm_type(self) -> str:

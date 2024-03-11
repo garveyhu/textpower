@@ -4,11 +4,6 @@ from textpower.complex.config.api_settings import get_config, set_config
 """cases"""
 
 
-def chat():
-    """获取使用的chat模型类型"""
-    return get_config("cases.chat")
-
-
 def llm():
     """获取使用的llm模型类型"""
     return get_config("cases.llm")
@@ -27,11 +22,6 @@ def vector():
 """lists"""
 
 
-def lists_chat():
-    """获取chat模型列表"""
-    return get_config("lists.chat")
-
-
 def lists_llm():
     """获取llm模型列表"""
     return get_config("lists.llm")
@@ -45,15 +35,6 @@ def lists_embedding():
 def lists_vector():
     """获取向量库列表"""
     return get_config("lists.vector")
-
-
-def chat_temperature():
-    """获取chat模型温度"""
-    list = lists_chat()
-    for chats in list:
-        if chats["name"] == chat():
-            return float(chats["temperature"])
-    return None
 
 
 def llm_temperature():
@@ -114,14 +95,6 @@ def keys_pinecone():
 
 
 """修改配置"""
-
-
-def set_chat_model_temperature(temperature):
-    """修改温度"""
-    list = lists_chat()
-    for chats in list:
-        if chats["name"] == chat():
-            chats["temperature"] = temperature
             
             
 def set_llm_model_temperature(temperature):
