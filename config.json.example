@@ -1,6 +1,7 @@
 {
     "cases": {
-        "chat": "spark-v3",
+        "chat": "qwen-turbo",
+        "llm": "gpt-3.5-turbo-instruct",
         "embedding": "text-embedding-v1",
         "vector": "pinecone"
     },
@@ -8,17 +9,20 @@
         "openai": {
             "OPENAI_API_KEY": ""
         },
+        "qianfan": {
+            "QIANFAN_API_KEY": "",
+            "QIANFAN_API_SECRET": ""
+        },
+        "baichuan": {
+            "BAICHUAN_API_KEY": ""
+        },
+        "qwen": {
+            "QWEN_API_KEY": ""
+        },
         "spark": {
             "SPARK_APPID": "",
             "SPARK_API_KEY": "",
             "SPARK_API_SECRET": ""
-        },
-        "ernie": {
-            "ERNIE_API_KEY": "",
-            "ERNIE_API_SECRET": ""
-        },
-        "qwen": {
-            "QWEN_API_KEY": ""
         },
         "pinecone": {
             "PINECONE_API_KEY": ""
@@ -66,21 +70,39 @@
                 "temperature": 0.5
             },
             {
-                "name": "gpt-4-1106-preview",
+                "name": "gpt-4-turbo-preview",
                 "type": "openai",
                 "token": "128k",
                 "temperature": 0.5
             },
             {
-                "name": "ernie-bot-turbo",
-                "type": "ernie",
+                "name": "ERNIE-Bot-turbo",
+                "type": "qianfan",
                 "token": "7k",
                 "temperature": 0.5
             },
             {
-                "name": "ernie-bot-4.0",
-                "type": "ernie",
-                "token": "3k",
+                "name": "ERNIE-4.0-8K",
+                "type": "qianfan",
+                "token": "7k",
+                "temperature": 0.5
+            },
+            {
+                "name": "Baichuan2-Turbo-192K",
+                "type": "baichuan",
+                "token": "192k",
+                "temperature": 0.5
+            },
+            {
+                "name": "qwen-turbo",
+                "type": "qwen",
+                "token": "6k",
+                "temperature": 0.5
+            },
+            {
+                "name": "qwen-plus",
+                "type": "qwen",
+                "token": "6k",
                 "temperature": 0.5
             },
             {
@@ -96,36 +118,56 @@
                 "temperature": 0.5
             },
             {
-                "name": "qwen-turbo",
-                "type": "qwen",
-                "token": "6k",
+                "name": "spark-v3.5",
+                "type": "spark",
+                "token": "8k",
                 "temperature": 0.5
-            },
+            }
+        ],
+        "llm": [
             {
-                "name": "qwen-plus",
-                "type": "qwen",
-                "token": "6k",
+                "name": "gpt-3.5-turbo-instruct",
+                "type": "openai",
+                "token": "4k",
                 "temperature": 0.5
             }
         ],
         "embedding": [
             {
+                "name": "text-embedding-3-large",
+                "type": "openai",
+                "token": "8k",
+                "dimensions": 3072
+            },
+            {
+                "name": "text-embedding-3-small",
+                "type": "openai",
+                "token": "8k",
+                "dimensions": 1536
+            },
+            {
                 "name": "text-embedding-ada-002",
                 "type": "openai",
                 "token": "8k",
-                "dimension": 1536
+                "dimensions": 1536
             },
             {
-                "name": "embedding-v1",
-                "type": "ernie",
-                "token": "4k",
-                "dimension": 1536
+                "name": "Embedding-V1",
+                "type": "qianfan",
+                "token": "8k",
+                "dimensions": 512
+            },
+            {
+                "name": "Baichuan-Text-Embedding",
+                "type": "baichuan",
+                "token": "2k",
+                "dimensions": 1024
             },
             {
                 "name": "text-embedding-v1",
                 "type": "qwen",
                 "token": "2k",
-                "dimension": 1536
+                "dimensions": 1536
             }
         ],
         "vector": [
