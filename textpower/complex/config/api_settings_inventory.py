@@ -9,6 +9,11 @@ def chat():
     return get_config("cases.chat")
 
 
+def llm():
+    """获取使用的llm模型类型"""
+    return get_config("cases.llm")
+
+
 def embedding():
     """获取使用的embedding模型类型"""
     return get_config("cases.embedding")
@@ -27,6 +32,11 @@ def lists_chat():
     return get_config("lists.chat")
 
 
+def lists_llm():
+    """获取llm模型列表"""
+    return get_config("lists.llm")
+
+
 def lists_embedding():
     """获取embedding模型列表"""
     return get_config("lists.embedding")
@@ -37,12 +47,30 @@ def lists_vector():
     return get_config("lists.vector")
 
 
-def model_temperature():
-    """获取模型温度"""
+def chat_temperature():
+    """获取chat模型温度"""
     list = lists_chat()
     for chats in list:
         if chats["name"] == chat():
             return float(chats["temperature"])
+    return None
+
+
+def llm_temperature():
+    """获取llm模型温度"""
+    list = lists_llm()
+    for llms in list:
+        if llms["name"] == llm():
+            return float(llms["temperature"])
+    return None
+
+
+def embedding_dimensions():
+    """获取embedding模型维度"""
+    list = lists_embedding()
+    for embeddings in list:
+        if embeddings["name"] == embedding():
+            return int(embeddings["dimensions"])
     return None
 
 
@@ -67,10 +95,16 @@ def keys_qwen():
     return config["QWEN_API_KEY"]
 
 
-def keys_ernie():
-    """获取ernie keys"""
-    config = get_config("keys.ernie")
-    return (config["ERNIE_API_KEY"], config["ERNIE_API_SECRET"])
+def keys_qianfan():
+    """获取qianfan keys"""
+    config = get_config("keys.qianfan")
+    return (config["QIANFAN_API_KEY"], config["QIANFAN_API_SECRET"])
+
+
+def keys_baichuan():
+    """获取baichuan keys"""
+    config = get_config("keys.baichuan")
+    return config["BAICHUAN_API_KEY"]
 
 
 def keys_pinecone():
@@ -82,12 +116,20 @@ def keys_pinecone():
 """修改配置"""
 
 
-def set_model_temperature(temperature):
+def set_chat_model_temperature(temperature):
     """修改温度"""
     list = lists_chat()
     for chats in list:
         if chats["name"] == chat():
             chats["temperature"] = temperature
+            
+            
+def set_llm_model_temperature(temperature):
+    """修改温度"""
+    list = lists_llm()
+    for llms in list:
+        if llms["name"] == llm():
+            llms["temperature"] = temperature
 
 
 """用户、会话、应用"""
