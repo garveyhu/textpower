@@ -4,6 +4,7 @@ from textpower.feature.manager.elasticsearch import ElasticsearchManager
 from textpower.feature.manager.redis import RedisManager
 from textpower.feature.memory.elasticsearch import ElasticsearchMemory
 from textpower.feature.memory.redis import RedisMemory
+from textpower.feature.vector.elasticsearch import ElasticsearchVector
 
 """⭐embeddings⭐"""
 
@@ -131,3 +132,20 @@ def redis_buffer_window_memory(**kwargs):
         k: int = 5
     """
     return RedisMemory().buffer_window_memory(**kwargs)
+
+
+"""⭐vector⭐"""
+
+
+def es_dialog_vector():
+    """`ElasticsearchVector`
+    会话向量Store
+    """
+    return ElasticsearchVector().dialog_vector()
+
+
+def es_resource_vector():
+    """`ElasticsearchVector`
+    资源向量Store
+    """
+    return ElasticsearchVector().resource_vector()

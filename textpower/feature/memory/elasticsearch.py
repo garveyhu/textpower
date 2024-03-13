@@ -25,6 +25,7 @@ class ElasticsearchMemory:
         )
 
     def summarize_memory(self, **kwargs):
+        """对历史进行LLM总结，生成新的历史上下文."""
         return ConversationSummaryMemory.from_messages(
             llm=llm(),
             chat_memory=self.history,
@@ -33,6 +34,7 @@ class ElasticsearchMemory:
         )
 
     def buffer_window_memory(self, **kwargs):
+        """对历史进行滑动窗口设置，生成窗口大小的历史上下文."""
         return ConversationBufferWindowMemory(
             chat_memory=self.history, return_messages=True, **kwargs
         )
