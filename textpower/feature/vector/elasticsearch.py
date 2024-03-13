@@ -10,14 +10,23 @@ class ElasticsearchVector:
     def __init__(self):
         self.client = elasticsearch()
         self.embedding = embedding()
-        self.dialog_id = dialog_id()
+
+    @staticmethod
+    def dialog_index():
+        """会话向量Index"""
+        return "dialog_" + dialog_id()
+
+    @staticmethod
+    def resource_index():
+        """资源向量Index"""
+        return "resource_" + dialog_id()
 
     def dialog_vector(self):
         """会话向量Store"""
         return ElasticsearchStore(
             es_connection=self.client,
             embedding=self.embedding,
-            index_name="dialog_" + self.dialog_id,
+            index_name=self.__class__.dialog_index(),
         )
 
     def resource_vector(self):
@@ -25,5 +34,5 @@ class ElasticsearchVector:
         return ElasticsearchStore(
             es_connection=self.client,
             embedding=self.embedding,
-            index_name="resource_" + self.dialog_id,
+            index_name=self.__class__.resource_index(),
         )
