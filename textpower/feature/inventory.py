@@ -3,6 +3,7 @@ from textpower.feature.llms.llm_creator import LLMCreator
 from textpower.feature.manager.elasticsearch import ElasticsearchManager
 from textpower.feature.manager.redis import RedisManager
 from textpower.feature.memory.elasticsearch import ElasticsearchMemory
+from textpower.feature.memory.redis import RedisMemory
 
 """⭐embeddings⭐"""
 
@@ -86,3 +87,47 @@ def es_buffer_window_memory(**kwargs):
         k: int = 5
     """
     return ElasticsearchMemory().buffer_window_memory(**kwargs)
+
+
+def redis_summarize_memory(**kwargs):
+    """`RedisMemory`
+    对历史进行LLM总结，生成新的历史上下文
+
+    Example:
+        .. code-block:: python
+
+            from langchain.chains import ConversationChain
+            from textpower.feature.inventory import redis_summarize_memory
+
+            memory = redis_summarize_memory()
+            conversation_chain = ConversationChain(llm=llm, verbose=True, memory=memory)
+            result = conversation_chain.predict(input=text)
+
+    Args:
+        buffer: str = ""
+        memory_key: str = "history"
+    """
+    return RedisMemory().summarize_memory(**kwargs)
+
+
+def redis_buffer_window_memory(**kwargs):
+    """`RedisMemory`
+    对历史进行滑动窗口设置，生成窗口大小的历史上下文
+
+    Example:
+        .. code-block:: python
+
+            from langchain.chains import ConversationChain
+            from textpower.feature.inventory import redis_buffer_window_memory
+
+            memory = redis_buffer_window_memory(k=3)
+            conversation_chain = ConversationChain(llm=llm, verbose=True, memory=memory)
+            result = conversation_chain.predict(input=text)
+
+    Args:
+        human_prefix: str = "Human"
+        ai_prefix: str = "AI"
+        memory_key: str = "history"
+        k: int = 5
+    """
+    return RedisMemory().buffer_window_memory(**kwargs)

@@ -39,6 +39,8 @@ class ElasticsearchMemory:
 
 
 class ElasticsearchChatMessageHistory(BaseElasticsearchChatMessageHistory):
+    """Using an external elasticsearch search size"""
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.size = 10000
