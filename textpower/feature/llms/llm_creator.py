@@ -1,10 +1,10 @@
 from textpower.complex.config.api_settings_inventory import llm
-from textpower.feature.models.llms.baichuan_chat import BaichuanChat
-from textpower.feature.models.llms.openai import OpenAI
-from textpower.feature.models.llms.openai_chat import OpenAIChat
-from textpower.feature.models.llms.qianfan_chat import QianfanChat
-from textpower.feature.models.llms.qwen import Qwen
-from textpower.feature.models.llms.spark import Spark
+from textpower.feature.llms.baichuan_chat import BaichuanChat
+from textpower.feature.llms.openai import OpenAI
+from textpower.feature.llms.openai_chat import OpenAIChat
+from textpower.feature.llms.qianfan_chat import QianfanChat
+from textpower.feature.llms.qwen import Qwen
+from textpower.feature.llms.spark import Spark
 
 
 class LLMCreator:
@@ -40,7 +40,3 @@ class LLMCreator:
             raise ValueError(f"No llm class found for type {llm_type}")
 
         return llm_class()
-
-
-def get_llm():
-    return LLMCreator().create_llm()

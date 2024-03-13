@@ -1,8 +1,8 @@
 from textpower.complex.config.api_settings_inventory import embedding
-from textpower.feature.models.embeddings.baichuan import BaichuanEmbeddings
-from textpower.feature.models.embeddings.openai import OpenAIEmbeddings
-from textpower.feature.models.embeddings.qianfan import QianfanEmbeddings
-from textpower.feature.models.embeddings.qwen import QwenEmbeddings
+from textpower.feature.embeddings.baichuan import BaichuanEmbeddings
+from textpower.feature.embeddings.openai import OpenAIEmbeddings
+from textpower.feature.embeddings.qianfan import QianfanEmbeddings
+from textpower.feature.embeddings.qwen import QwenEmbeddings
 
 
 class EmbeddingCreator:
@@ -25,7 +25,3 @@ class EmbeddingCreator:
             raise ValueError(f"No embedding class found for type {embedding_type}")
 
         return embedding_class()
-
-
-def get_embedding():
-    return EmbeddingCreator.create_embedding()

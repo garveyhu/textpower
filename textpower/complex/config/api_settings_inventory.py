@@ -1,7 +1,6 @@
 from textpower.complex.config.api_settings import get_config, set_config
 
-
-"""cases"""
+"""⭐cases⭐"""
 
 
 def llm():
@@ -19,43 +18,7 @@ def vector():
     return get_config("cases.vector")
 
 
-"""lists"""
-
-
-def lists_llm():
-    """获取llm模型列表"""
-    return get_config("lists.llm")
-
-
-def lists_embedding():
-    """获取embedding模型列表"""
-    return get_config("lists.embedding")
-
-
-def lists_vector():
-    """获取向量库列表"""
-    return get_config("lists.vector")
-
-
-def llm_temperature():
-    """获取llm模型温度"""
-    list = lists_llm()
-    for llms in list:
-        if llms["name"] == llm():
-            return float(llms["temperature"])
-    return None
-
-
-def embedding_dimensions():
-    """获取embedding模型维度"""
-    list = lists_embedding()
-    for embeddings in list:
-        if embeddings["name"] == embedding():
-            return int(embeddings["dimensions"])
-    return None
-
-
-"""keys"""
+"""⭐keys⭐"""
 
 
 def keys_openai():
@@ -94,18 +57,43 @@ def keys_pinecone():
     return config["PINECONE_API_KEY"]
 
 
-"""修改配置"""
-            
-            
-def set_llm_model_temperature(temperature):
-    """修改温度"""
+"""⭐lists⭐"""
+
+
+def lists_llm():
+    """获取llm模型列表"""
+    return get_config("lists.llm")
+
+
+def lists_embedding():
+    """获取embedding模型列表"""
+    return get_config("lists.embedding")
+
+
+def lists_vector():
+    """获取向量库列表"""
+    return get_config("lists.vector")
+
+
+def llm_temperature():
+    """获取llm模型温度"""
     list = lists_llm()
     for llms in list:
         if llms["name"] == llm():
-            llms["temperature"] = temperature
+            return float(llms["temperature"])
+    return None
 
 
-"""用户、会话、应用"""
+def embedding_dimensions():
+    """获取embedding模型维度"""
+    list = lists_embedding()
+    for embeddings in list:
+        if embeddings["name"] == embedding():
+            return int(embeddings["dimensions"])
+    return None
+
+
+"""⭐用户、会话、应用⭐"""
 
 
 def user_id():
