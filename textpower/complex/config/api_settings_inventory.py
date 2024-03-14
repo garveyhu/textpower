@@ -13,11 +13,6 @@ def embedding():
     return get_config("cases.embedding")
 
 
-def vector():
-    """获取使用的向量库类型"""
-    return get_config("cases.vector")
-
-
 """⭐keys⭐"""
 
 
@@ -68,11 +63,6 @@ def lists_llm():
 def lists_embedding():
     """获取embedding模型列表"""
     return get_config("lists.embedding")
-
-
-def lists_vector():
-    """获取向量库列表"""
-    return get_config("lists.vector")
 
 
 def llm_temperature():

@@ -1,8 +1,7 @@
 {
     "cases": {
         "llm": "qwen-turbo",
-        "embedding": "text-embedding-v1",
-        "vector": "pinecone"
+        "embedding": "text-embedding-v1"
     },
     "keys": {
         "openai": {
@@ -165,16 +164,6 @@
                 "type": "qwen",
                 "token": "2k",
                 "dimensions": 1536
-            }
-        ],
-        "vector": [
-            {
-                "name": "pinecone",
-                "type": "pinecone"
-            },
-            {
-                "name": "elasticsearch",
-                "type": "elasticsearch"
             }
         ],
         "audio": [],
