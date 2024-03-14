@@ -1,5 +1,3 @@
-from doctest import Example
-
 from textpower.feature.embeddings.embedding_creator import EmbeddingCreator
 from textpower.feature.llms.llm_creator import LLMCreator
 from textpower.feature.manager.elasticsearch import ElasticsearchManager
