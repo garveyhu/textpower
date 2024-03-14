@@ -1,3 +1,5 @@
+from doctest import Example
+
 from textpower.feature.embeddings.embedding_creator import EmbeddingCreator
 from textpower.feature.llms.llm_creator import LLMCreator
 from textpower.feature.manager.elasticsearch import ElasticsearchManager
@@ -5,6 +7,7 @@ from textpower.feature.manager.redis import RedisManager
 from textpower.feature.memory.elasticsearch import ElasticsearchMemory
 from textpower.feature.memory.redis import RedisMemory
 from textpower.feature.vector.elasticsearch import ElasticsearchVector
+from textpower.feature.vector.pinecone import PineconeVector
 
 """⭐embeddings⭐"""
 
@@ -140,6 +143,17 @@ def redis_buffer_window_memory(**kwargs):
 def es_dialog_vector():
     """`ElasticsearchVector`
     会话向量Store
+
+    Example:
+        .. code-block:: python
+
+            from textpower.feature.inventory import es_dialog_vector
+            from textpower.feature.vector.elasticsearch import ElasticsearchVector
+
+            db = es_dialog_vector()
+            db.add_documents(content)
+            db.client.indices.refresh(index=ElasticsearchVector.dialog_index())
+
     """
     return ElasticsearchVector().dialog_vector()
 
@@ -147,5 +161,30 @@ def es_dialog_vector():
 def es_resource_vector():
     """`ElasticsearchVector`
     资源向量Store
+
+    Example:
+        .. code-block:: python
+
+            from textpower.feature.inventory import es_resource_vector
+            from textpower.feature.vector.elasticsearch import ElasticsearchVector
+
+            db = es_resource_vector()
+            db.add_documents(content)
+            db.client.indices.refresh(index=ElasticsearchVector.resource_index())
     """
     return ElasticsearchVector().resource_vector()
+
+
+def pinecone_vector():
+    """Pinecone存储向量（向量化）.
+
+    Example:
+        .. code-block:: python
+
+            from textpower.feature.inventory import pinecone_vector
+
+            db = pinecone_vector()
+            db.add_documents(content)
+    """
+
+    return PineconeVector().pinecone_vector()

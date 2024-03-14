@@ -1380,6 +1380,27 @@ url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 reference = "mirrors"
 
 [[package]]
+name = "langchain-pinecone"
+version = "0.0.3"
+description = "An integration package connecting Pinecone and LangChain"
+optional = false
+python-versions = ">=3.8.1,<3.13"
+files = [
+    {file = "langchain_pinecone-0.0.3-py3-none-any.whl", hash = "sha256:aa6c9925727f509b781c791184f5c2f8bc15030c0ad20f4b52b2698207934b9d"},
+    {file = "langchain_pinecone-0.0.3.tar.gz", hash = "sha256:5584a56b4208f3a30917c6698a27ecb459c192db0b2374d515887b507763ff20"},
+]
+
+[package.dependencies]
+langchain-core = ">=0.1,<0.2"
+numpy = ">=1,<2"
+pinecone-client = ">=3,<4"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+reference = "mirrors"
+
+[[package]]
 name = "langchain-text-splitters"
 version = "0.0.1"
 description = "LangChain text splitting utilities"
@@ -1883,6 +1904,34 @@ files = [
     {file = "pathspec-0.12.1-py3-none-any.whl", hash = "sha256:a0d503e138a4c123b27490a4f7beda6a01c6f288df0e4a8b79c7eb0dc7b4cc08"},
     {file = "pathspec-0.12.1.tar.gz", hash = "sha256:a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712"},
 ]
+
+[package.source]
+type = "legacy"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+reference = "mirrors"
+
+[[package]]
+name = "pinecone-client"
+version = "3.1.0"
+description = "Pinecone client and SDK"
+optional = false
+python-versions = ">=3.8,<4.0"
+files = [
+    {file = "pinecone_client-3.1.0-py3-none-any.whl", hash = "sha256:66dfe9859ed5b3412c3b59c68c9706c0f522cafd1a15c5d05e28d5664c2c48a4"},
+    {file = "pinecone_client-3.1.0.tar.gz", hash = "sha256:45b8206013f91a982b994f1fbaa39e7e8c99d30ef3778a9f319c43b8c992fc42"},
+]
+
+[package.dependencies]
+certifi = ">=2019.11.17"
+tqdm = ">=4.64.1"
+typing-extensions = ">=3.7.4"
+urllib3 = [
+    {version = ">=1.26.0", markers = "python_version >= \"3.8\" and python_version < \"3.12\""},
+    {version = ">=1.26.5", markers = "python_version >= \"3.12\" and python_version < \"4.0\""},
+]
+
+[package.extras]
+grpc = ["googleapis-common-protos (>=1.53.0)", "grpc-gateway-protoc-gen-openapiv2 (==0.1.0)", "grpcio (>=1.44.0)", "grpcio (>=1.59.0)", "lz4 (>=3.1.3)", "protobuf (>=3.20.0,<3.21.0)"]
 
 [package.source]
 type = "legacy"
@@ -3364,5 +3413,5 @@ reference = "mirrors"
 
 [metadata]
 lock-version = "2.0"
-python-versions = "^3.10"
-content-hash = "c66affec7fd22b543cb836ed4ef7a32ca9e1a06f9f5fe3f99d1f40a62cf9ad8f"
+python-versions = "^3.10,<3.13"
+content-hash = "13a90f4d840b9d26f475a7373b1d43a7dfd61f68ab79b2ad3a65db1835e504d3"

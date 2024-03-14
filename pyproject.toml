@@ -6,7 +6,7 @@ authors = ["Archer <h96599021@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.10,<3.13"
 fastapi = {extras = ["all"], version = "^0.110.0"}
 pydantic-settings = "^2.2.1"
 python-dotenv = "^1.0.1"
@@ -17,6 +17,7 @@ langchain = "^0.1.11"
 langchain-cli = "^0.0.21"
 langchain-openai = "^0.0.8"
 langchain-elasticsearch = "^0.1.0"
+langchain-pinecone = "^0.0.3"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.2.0"
