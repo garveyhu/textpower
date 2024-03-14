@@ -4,6 +4,12 @@
 
  一种利用 [langchain](https://github.com/hwchase17/langchain) 思想实现的放大llm能力的应用，用以建立一套对中文场景与开源模型支持友好的llm应用解决方案。
 
+## 🚩 特点
+
+- **配置灵活**：支持模型随意切换，不入侵代码。
+- **IOC设计**：实现IOC机制，统一管理功能组件
+- **多模型支持**：支持多种llm、embedding模型，包括OpenAI、讯飞星火、百度千帆、阿里通义千问、百川等。
+
 ## 🌟 Quickstart
 
 1. 配置
