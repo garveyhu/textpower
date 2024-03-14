@@ -23,5 +23,4 @@ def main(apps):
 
 
 if __name__ == "__main__":
-    apps = [run_uvicorn]
-    main(apps)
+    run_uvicorn()
