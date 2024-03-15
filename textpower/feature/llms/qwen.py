@@ -7,17 +7,13 @@ import requests
 from langchain_core.language_models import LLM
 
 from textpower.complex.config.api_settings_inventory import (
+    keys_qwen,
     llm,
     llm_temperature,
-    keys_qwen,
 )
 
 
 class Qwen(LLM):
-    def __init__(self):
-        self.model = llm()
-        self.qwen_api_key = keys_qwen()
-        self.temperature = llm_temperature()
 
     @property
     def _llm_type(self) -> str:
@@ -32,9 +28,9 @@ class Qwen(LLM):
         return content
 
     def _call_prompt(self, prompt, **kwargs: Any):
-        dashscope.api_key = self.qwen_api_key
+        dashscope.api_key = keys_qwen()
         response = dashscope.Generation.call(
-            model=self.model, prompt=prompt, temperature=self.temperature, **kwargs
+            model=llm(), prompt=prompt, temperature=llm_temperature(), **kwargs
         )
         if response.status_code == HTTPStatus.OK:
             if hasattr(response, "output"):
@@ -55,7 +51,7 @@ class Qwen(LLM):
         url = "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation"
         payload = json.dumps(
             {
-                "model": self.model,
+                "model": llm(),
                 "input": {
                     "prompt": prompt,
                 },
@@ -64,7 +60,7 @@ class Qwen(LLM):
         )
         headers = {
             "Content-Type": "application/json",
-            "Authorization": "Bearer " + self.qwen_api_key,
+            "Authorization": "Bearer " + keys_qwen(),
         }
         response = requests.post(url, headers=headers, data=payload)
         if response.status_code == HTTPStatus.OK:

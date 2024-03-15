@@ -1,15 +1,16 @@
 from langchain_elasticsearch import ElasticsearchStore
 
 from textpower.complex.config.api_settings_inventory import dialog_id
-from textpower.feature.inventory import elasticsearch, embeddings
+from textpower.feature.embeddings.embedding_creator import EmbeddingCreator
+from textpower.feature.manager.elasticsearch import ElasticsearchManager
 
 
 class ElasticsearchVector:
     """Elasticsearch存储向量（向量化）."""
 
     def __init__(self):
-        self.client = elasticsearch()
-        self.embedding = embeddings()
+        self.client = ElasticsearchManager().client
+        self.embedding = EmbeddingCreator.create_embedding()
 
     @staticmethod
     def dialog_index():
