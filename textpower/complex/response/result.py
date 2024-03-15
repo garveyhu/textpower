@@ -2,7 +2,7 @@ from typing import Generic, Optional, TypeVar
 
 from pydantic import BaseModel, Field
 
-from textpower.api.response.code import ResultCode
+from textpower.complex.response.code import ResultCode
 
 T = TypeVar("T")
 

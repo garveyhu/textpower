@@ -1,4 +1,4 @@
-from textpower.api.response.code import ResultCode
+from textpower.complex.response.code import ResultCode
 
 
 class CustomException(Exception):
