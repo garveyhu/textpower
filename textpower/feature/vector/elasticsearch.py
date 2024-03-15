@@ -1,7 +1,7 @@
 from langchain_elasticsearch import ElasticsearchStore
 
 from textpower.complex.config.api_settings_inventory import dialog_id
-from textpower.feature.inventory import elasticsearch, embedding
+from textpower.feature.inventory import elasticsearch, embeddings
 
 
 class ElasticsearchVector:
@@ -9,7 +9,7 @@ class ElasticsearchVector:
 
     def __init__(self):
         self.client = elasticsearch()
-        self.embedding = embedding()
+        self.embedding = embeddings()
 
     @staticmethod
     def dialog_index():
