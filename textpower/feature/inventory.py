@@ -10,7 +10,7 @@ from textpower.feature.vector.pinecone import PineconeVector
 """⭐embeddings⭐"""
 
 
-def embedding():
+def embeddings():
     """`EmbeddingCreator`
     获取embedding模型
     """
@@ -20,7 +20,7 @@ def embedding():
 """⭐llms⭐"""
 
 
-def llm():
+def llms():
     """`LLMCreator`
     获取llm模型
     """

@@ -9,7 +9,7 @@ from langchain_elasticsearch.chat_history import (
 )
 
 from textpower.complex.config.api_settings_inventory import dialog_id
-from textpower.feature.inventory import elasticsearch, llm
+from textpower.feature.inventory import elasticsearch, llms
 
 logger = logging.getLogger(__name__)
 
@@ -27,7 +27,7 @@ class ElasticsearchMemory:
     def summarize_memory(self, **kwargs):
         """对历史进行LLM总结，生成新的历史上下文."""
         return ConversationSummaryMemory.from_messages(
-            llm=llm(),
+            llm=llms(),
             chat_memory=self.history,
             return_messages=True,
             **kwargs,

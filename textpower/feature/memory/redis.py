@@ -7,7 +7,7 @@ from langchain_community.chat_message_histories import (
 from redis import Redis
 
 from textpower.complex.config.api_settings_inventory import dialog_id
-from textpower.feature.inventory import llm, redis
+from textpower.feature.inventory import llms, redis
 
 
 class RedisMemory:
@@ -22,7 +22,7 @@ class RedisMemory:
 
     def summarize_memory(self, **kwargs):
         return ConversationSummaryMemory.from_messages(
-            llm=llm(),
+            llm=llms(),
             chat_memory=self.history,
             return_messages=True,
             **kwargs,
