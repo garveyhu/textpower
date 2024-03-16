@@ -22,6 +22,6 @@ async def conversation(text: str = Body(..., embed=True)):
 """RAG对话"""
 
 
-@router.post("/conversation/rag", summary="RAG会话(记忆)")
+@router.post("/conversation/rag", summary="RAG会话(非记忆)")
 async def conversation_rag(text: str = Body(..., embed=True)):
     return Result.ok(ChatChains().rag(text))

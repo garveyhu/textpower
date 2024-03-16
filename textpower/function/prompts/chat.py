@@ -16,7 +16,7 @@ _condense_question_prompt_template = """Given the following conversation and a f
 
 Chat History:
 {history}
-Follow Up Input: {input}
+Follow Up Input: {question}
 """
 CONDENSE_QUESTION_PROMPT = PromptTemplate.from_template(
     _condense_question_prompt_template
@@ -34,7 +34,7 @@ If you don't know the answer, just say that you don't know, don't try to make up
 ----
 {context}
 ----
-Question: {input}
+Question: {question}
 """
 CONTEXT_PROMPT = ChatPromptTemplate.from_template(_context_prompt_template)
 

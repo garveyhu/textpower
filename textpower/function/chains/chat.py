@@ -8,7 +8,7 @@ from textpower.feature.inventory import (
     es_resource_vector,
     llms,
 )
-from textpower.function.prompts.chat import HISTORY_PROMPT, LLM_CONTEXT_PROMPT
+from textpower.function.prompts.chat import CONTEXT_PROMPT, HISTORY_PROMPT
 
 
 class ChatChains:
@@ -37,9 +37,9 @@ class ChatChains:
         retriever = es_resource_vector().as_retriever()
         chain = (
             {"context": retriever, "question": RunnablePassthrough()}
-            | LLM_CONTEXT_PROMPT
+            | CONTEXT_PROMPT
             | llms()
             | StrOutputParser()
         )
 
-        return chain.invoke({"input": text})
+        return chain.invoke(text)
